@@ -78,13 +78,7 @@ export default function Index() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 gradient-purple-blue rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">ФФ</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold">КПК "ФИН ФОРМУЛА"</h1>
-              <p className="text-xs text-muted-foreground">Фонд финансирования бизнеса</p>
-            </div>
+            <img src="https://cdn.poehali.dev/files/Логотип.jpg" alt="КПК ФИН ФОРМУЛА" className="h-12 w-auto object-contain" />
           </div>
           <nav className="hidden md:flex gap-6">
             <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">О фонде</a>
@@ -431,14 +425,8 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 gradient-purple-blue rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">ФФ</span>
-                </div>
-                <div>
-                  <div className="font-bold">КПК "ФИН ФОРМУЛА"</div>
-                  <div className="text-sm text-gray-400">С 2016 года</div>
-                </div>
+              <div className="mb-4">
+                <img src="https://cdn.poehali.dev/files/Логотип.jpg" alt="КПК ФИН ФОРМУЛА" className="h-16 w-auto object-contain brightness-0 invert" />
               </div>
               <p className="text-gray-400 text-sm">
                 Кредитный потребительский кооператив для финансирования и развития бизнеса
