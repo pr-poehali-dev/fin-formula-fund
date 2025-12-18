@@ -110,34 +110,36 @@ export default function Index() {
         </div>
       </header>
 
-      <section className="pt-32 pb-20 px-4 relative overflow-hidden">
+      <section className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 gradient-purple-blue opacity-5"></div>
         <div className="container mx-auto relative">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h2 className="text-5xl md:text-7xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight">
               Финансирование бизнеса{' '}
               <span className="text-gradient">без границ</span>
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-2">
               КПК "ФИН ФОРМУЛА" — объединение юридических лиц для взаимного финансирования и развития бизнеса с 2016 года
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" className="gradient-purple-blue text-white">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
+              <Button size="lg" className="gradient-purple-blue text-white w-full sm:w-auto">
                 <Icon name="TrendingUp" size={20} />
-                Разместить средства
+                <span className="hidden sm:inline">Разместить средства</span>
+                <span className="sm:hidden">Разместить</span>
               </Button>
-              <Button size="lg" variant="outline" className="border-2">
+              <Button size="lg" variant="outline" className="border-2 w-full sm:w-auto">
                 <Icon name="Wallet" size={20} />
-                Получить финансирование
+                <span className="hidden sm:inline">Получить финансирование</span>
+                <span className="sm:hidden">Финансирование</span>
               </Button>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-8 md:mt-16 max-w-4xl mx-auto">
             {stats.map((stat, idx) => (
               <Card key={idx} className="text-center animate-scale-in hover:shadow-lg transition-shadow" style={{ animationDelay: `${idx * 0.1}s` }}>
-                <CardContent className="pt-6">
-                  <div className="text-3xl font-bold text-gradient mb-2">
+                <CardContent className="pt-4 md:pt-6 pb-4 md:pb-6">
+                  <div className="text-2xl md:text-3xl font-bold text-gradient mb-1 md:mb-2">
                     {stat.isYear ? (
                       stat.value
                     ) : (
@@ -148,7 +150,7 @@ export default function Index() {
                       />
                     )}
                   </div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-xs md:text-sm text-muted-foreground">{stat.label}</div>
                 </CardContent>
               </Card>
             ))}
@@ -156,16 +158,16 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="about" className="py-20 px-4 bg-muted/30">
+      <section id="about" className="py-12 md:py-20 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">О фонде</h2>
-            <p className="text-lg text-muted-foreground">
+          <div className="max-w-3xl mx-auto text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">О фонде</h2>
+            <p className="text-base md:text-lg text-muted-foreground px-4">
               Мы создаем условия для роста вашего бизнеса через взаимное финансирование
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-8 max-w-5xl mx-auto">
             <Card className="hover:shadow-xl transition-all hover:-translate-y-1">
               <CardHeader>
                 <div className="w-12 h-12 gradient-purple-blue rounded-lg flex items-center justify-center mb-4">
@@ -197,36 +199,36 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="services" className="py-20 px-4">
+      <section id="services" className="py-12 md:py-20 px-4">
         <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши услуги</h2>
-            <p className="text-lg text-muted-foreground">
+          <div className="max-w-3xl mx-auto text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Наши услуги</h2>
+            <p className="text-base md:text-lg text-muted-foreground px-4">
               Два направления для роста вашего бизнеса
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-8 max-w-6xl mx-auto mb-8 md:mb-16">
             {services.map((service, idx) => (
               <Card key={idx} className="overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-2">
                 <div className={`h-2 ${service.gradient}`}></div>
                 <CardHeader>
-                  <div className={`w-16 h-16 ${service.gradient} rounded-2xl flex items-center justify-center mb-4 animate-float`}>
-                    <Icon name={service.icon as any} size={32} className="text-white" />
+                  <div className={`w-12 h-12 md:w-16 md:h-16 ${service.gradient} rounded-2xl flex items-center justify-center mb-3 md:mb-4 animate-float`}>
+                    <Icon name={service.icon as any} size={24} className="text-white md:w-8 md:h-8" />
                   </div>
-                  <CardTitle className="text-2xl">{service.title}</CardTitle>
-                  <CardDescription className="text-base">{service.description}</CardDescription>
+                  <CardTitle className="text-xl md:text-2xl">{service.title}</CardTitle>
+                  <CardDescription className="text-sm md:text-base">{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 md:space-y-3">
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-center gap-2">
-                        <Icon name="CheckCircle2" size={20} className="text-primary" />
-                        <span>{feature}</span>
+                        <Icon name="CheckCircle2" size={18} className="text-primary" />
+                        <span className="text-sm md:text-base">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <Button className={`w-full mt-6 ${service.gradient} text-white`}>
+                  <Button className={`w-full mt-4 md:mt-6 ${service.gradient} text-white`}>
                     Подробнее
                   </Button>
                 </CardContent>
@@ -234,31 +236,31 @@ export default function Index() {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-8 max-w-6xl mx-auto">
             <Calculator />
             <LoanCalculator />
           </div>
         </div>
       </section>
 
-      <section id="advantages" className="py-20 px-4 bg-muted/30">
+      <section id="advantages" className="py-12 md:py-20 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Преимущества фонда</h2>
-            <p className="text-lg text-muted-foreground">
+          <div className="max-w-3xl mx-auto text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Преимущества фонда</h2>
+            <p className="text-base md:text-lg text-muted-foreground px-4">
               Почему стоит выбрать КПК "ФИН ФОРМУЛА"
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
             {advantages.map((adv, idx) => (
               <Card key={idx} className="text-center hover:shadow-xl transition-all hover:-translate-y-1 group">
-                <CardContent className="pt-8">
-                  <div className="w-16 h-16 gradient-purple-blue rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <Icon name={adv.icon as any} size={28} className="text-white" />
+                <CardContent className="pt-6 md:pt-8 pb-6">
+                  <div className="w-12 h-12 md:w-16 md:h-16 gradient-purple-blue rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <Icon name={adv.icon as any} size={24} className="text-white" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{adv.title}</h3>
-                  <p className="text-muted-foreground">{adv.text}</p>
+                  <h3 className="text-lg md:text-xl font-bold mb-2">{adv.title}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground">{adv.text}</p>
                 </CardContent>
               </Card>
             ))}
@@ -266,49 +268,49 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="membership" className="py-20 px-4">
+      <section id="membership" className="py-12 md:py-20 px-4">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Условия членства</h2>
-            <p className="text-lg text-muted-foreground">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Условия членства</h2>
+            <p className="text-base md:text-lg text-muted-foreground px-4">
               Присоединяйтесь к сообществу активных предпринимателей
             </p>
           </div>
 
           <Card className="hover:shadow-2xl transition-shadow">
-            <CardContent className="pt-8">
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 gradient-purple-blue rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name="UserPlus" size={24} className="text-white" />
+            <CardContent className="pt-6 md:pt-8">
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex gap-3 md:gap-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 gradient-purple-blue rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name="UserPlus" size={20} className="text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Как стать членом</h3>
-                    <p className="text-muted-foreground">
+                    <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">Как стать членом</h3>
+                    <p className="text-sm md:text-base text-muted-foreground">
                       Для вступления в кооператив необходимо внести паевой взнос, который формирует фонд финансирования. Размер взноса и условия обсуждаются индивидуально.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 gradient-orange-pink rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name="Award" size={24} className="text-white" />
+                <div className="flex gap-3 md:gap-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 gradient-orange-pink rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name="Award" size={20} className="text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Права участников</h3>
-                    <p className="text-muted-foreground">
+                    <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">Права участников</h3>
+                    <p className="text-sm md:text-base text-muted-foreground">
                       Каждый член кооператива имеет право на участие в управлении фондом, получение финансирования на развитие бизнеса и размещение свободных средств под выгодные проценты.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 gradient-purple-blue rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name="Shield" size={24} className="text-white" />
+                <div className="flex gap-3 md:gap-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 gradient-purple-blue rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name="Shield" size={20} className="text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Гарантии стабильности</h3>
-                    <ul className="space-y-2 text-muted-foreground">
+                    <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">Гарантии стабильности</h3>
+                    <ul className="space-y-2 text-sm md:text-base text-muted-foreground">
                       <li className="flex items-center gap-2">
                         <Icon name="Check" size={18} className="text-primary" />
                         Работаем с 2016 года
@@ -327,9 +329,10 @@ export default function Index() {
               </div>
 
               <MembershipForm>
-                <Button className="w-full mt-8 gradient-purple-blue text-white" size="lg">
+                <Button className="w-full mt-6 md:mt-8 gradient-purple-blue text-white" size="lg">
                   <Icon name="Send" size={20} />
-                  Подать заявку на членство
+                  <span className="hidden sm:inline">Подать заявку на членство</span>
+                  <span className="sm:hidden">Подать заявку</span>
                 </Button>
               </MembershipForm>
             </CardContent>
@@ -339,22 +342,22 @@ export default function Index() {
 
       <Testimonials />
 
-      <section id="faq" className="py-20 px-4 bg-muted/30">
+      <section id="faq" className="py-12 md:py-20 px-4 bg-muted/30">
         <div className="container mx-auto max-w-3xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Вопросы и ответы</h2>
-            <p className="text-lg text-muted-foreground">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Вопросы и ответы</h2>
+            <p className="text-base md:text-lg text-muted-foreground px-4">
               Ответы на часто задаваемые вопросы
             </p>
           </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
             {faqItems.map((item, idx) => (
-              <AccordionItem key={idx} value={`item-${idx}`} className="bg-white rounded-lg px-6 border-0 shadow-sm">
-                <AccordionTrigger className="text-left hover:no-underline">
-                  <span className="font-semibold">{item.q}</span>
+              <AccordionItem key={idx} value={`item-${idx}`} className="bg-white rounded-lg px-4 md:px-6 border-0 shadow-sm">
+                <AccordionTrigger className="text-left hover:no-underline py-4">
+                  <span className="font-semibold text-sm md:text-base">{item.q}</span>
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-sm md:text-base text-muted-foreground">
                   {item.a}
                 </AccordionContent>
               </AccordionItem>
@@ -363,48 +366,48 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="contact" className="py-20 px-4">
+      <section id="contact" className="py-12 md:py-20 px-4">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Свяжитесь с нами</h2>
-            <p className="text-lg text-muted-foreground">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Свяжитесь с нами</h2>
+            <p className="text-base md:text-lg text-muted-foreground px-4">
               Готовы обсудить сотрудничество? Оставьте заявку
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-8">
             <Card>
               <CardHeader>
                 <CardTitle>Наши контакты</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-center gap-3">
+              <CardContent className="space-y-3 md:space-y-4">
+                <div className="flex items-start gap-3">
                   <div className="w-10 h-10 gradient-purple-blue rounded-lg flex items-center justify-center">
                     <Icon name="Phone" size={20} className="text-white" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground">Телефон</div>
-                    <div className="font-semibold">+7 (800) 302-31-82</div>
+                    <div className="text-xs md:text-sm text-muted-foreground">Телефон</div>
+                    <div className="font-semibold text-sm md:text-base">+7 (800) 302-31-82</div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 gradient-orange-pink rounded-lg flex items-center justify-center">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 gradient-orange-pink rounded-lg flex items-center justify-center flex-shrink-0">
                     <Icon name="Mail" size={20} className="text-white" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground">Email</div>
-                    <div className="font-semibold">info@ffrf.ru</div>
+                    <div className="text-xs md:text-sm text-muted-foreground">Email</div>
+                    <div className="font-semibold text-sm md:text-base break-all">info@ffrf.ru</div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 gradient-purple-blue rounded-lg flex items-center justify-center">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 gradient-purple-blue rounded-lg flex items-center justify-center flex-shrink-0">
                     <Icon name="MapPin" size={20} className="text-white" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground">Адрес</div>
-                    <div className="font-semibold">Шахты, пр-кт. Пушкина, д. 29а</div>
+                    <div className="text-xs md:text-sm text-muted-foreground">Адрес</div>
+                    <div className="font-semibold text-sm md:text-base">Шахты, пр-кт. Пушкина, д. 29а</div>
                   </div>
                 </div>
               </CardContent>
@@ -415,7 +418,7 @@ export default function Index() {
                 <CardTitle>Отправить сообщение</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
                   <Input
                     placeholder="Ваше имя"
                     value={formData.name}
@@ -454,9 +457,9 @@ export default function Index() {
         </div>
       </section>
 
-      <footer className="bg-gray-900 text-white py-12 px-4">
+      <footer className="bg-gray-900 text-white py-8 md:py-12 px-4">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 gradient-purple-blue rounded-lg flex items-center justify-center">
@@ -467,14 +470,14 @@ export default function Index() {
                   <div className="text-sm text-gray-400">С 2016 года</div>
                 </div>
               </div>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-400 text-xs md:text-sm">
                 Кредитный потребительский кооператив для финансирования и развития бизнеса
               </p>
             </div>
 
             <div>
-              <h4 className="font-bold mb-4">Разделы</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h4 className="font-bold mb-3 md:mb-4 text-sm md:text-base">Разделы</h4>
+              <ul className="space-y-2 text-xs md:text-sm text-gray-400">
                 <li><a href="#about" className="hover:text-white transition-colors">О фонде</a></li>
                 <li><a href="#services" className="hover:text-white transition-colors">Услуги</a></li>
                 <li><a href="#advantages" className="hover:text-white transition-colors">Преимущества</a></li>
@@ -484,8 +487,8 @@ export default function Index() {
             </div>
 
             <div>
-              <h4 className="font-bold mb-4">Контакты</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h4 className="font-bold mb-3 md:mb-4 text-sm md:text-base">Контакты</h4>
+              <ul className="space-y-2 text-xs md:text-sm text-gray-400">
                 <li>+7 (800) 302-31-82</li>
                 <li>info@ffrf.ru</li>
                 <li>Шахты, пр-кт. Пушкина, д. 29а</li>
@@ -493,7 +496,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+          <div className="border-t border-gray-800 pt-6 md:pt-8 text-center text-xs md:text-sm text-gray-400">
             <p>© 2016-2025 КПК "ФИН ФОРМУЛА". Все права защищены.</p>
           </div>
         </div>
