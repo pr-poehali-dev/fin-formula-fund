@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
 import Calculator from '@/components/Calculator';
+import MembershipForm from '@/components/MembershipForm';
 
 export default function Index() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -94,9 +95,11 @@ export default function Index() {
             <a href="#faq" className="text-sm font-medium hover:text-primary transition-colors">FAQ</a>
             <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">Контакты</a>
           </nav>
-          <Button className="gradient-purple-blue text-white">
-            Стать членом
-          </Button>
+          <MembershipForm>
+            <Button className="gradient-purple-blue text-white">
+              Стать членом
+            </Button>
+          </MembershipForm>
         </div>
       </header>
 
@@ -303,10 +306,12 @@ export default function Index() {
                 </div>
               </div>
 
-              <Button className="w-full mt-8 gradient-purple-blue text-white" size="lg">
-                <Icon name="Send" size={20} />
-                Подать заявку на членство
-              </Button>
+              <MembershipForm>
+                <Button className="w-full mt-8 gradient-purple-blue text-white" size="lg">
+                  <Icon name="Send" size={20} />
+                  Подать заявку на членство
+                </Button>
+              </MembershipForm>
             </CardContent>
           </Card>
         </div>
