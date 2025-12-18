@@ -9,6 +9,8 @@ import Calculator from '@/components/Calculator';
 import LoanCalculator from '@/components/LoanCalculator';
 import MembershipForm from '@/components/MembershipForm';
 import MobileMenu from '@/components/MobileMenu';
+import AnimatedCounter from '@/components/AnimatedCounter';
+import Testimonials from '@/components/Testimonials';
 
 export default function Index() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -40,10 +42,10 @@ export default function Index() {
   ];
 
   const stats = [
-    { value: '2016', label: 'Год основания' },
-    { value: '100+ млн', label: 'Активы фонда' },
-    { value: '50+', label: 'Участников' },
-    { value: '98%', label: 'Удовлетворенность' }
+    { value: 2016, label: 'Год основания', isYear: true },
+    { value: 100, label: 'Активы фонда', suffix: '+ млн', decimals: 0 },
+    { value: 50, label: 'Участников', suffix: '+', decimals: 0 },
+    { value: 98, label: 'Удовлетворенность', suffix: '%', decimals: 0 }
   ];
 
   const faqItems = [
@@ -135,7 +137,17 @@ export default function Index() {
             {stats.map((stat, idx) => (
               <Card key={idx} className="text-center animate-scale-in hover:shadow-lg transition-shadow" style={{ animationDelay: `${idx * 0.1}s` }}>
                 <CardContent className="pt-6">
-                  <div className="text-3xl font-bold text-gradient mb-2">{stat.value}</div>
+                  <div className="text-3xl font-bold text-gradient mb-2">
+                    {stat.isYear ? (
+                      stat.value
+                    ) : (
+                      <AnimatedCounter 
+                        end={stat.value} 
+                        suffix={stat.suffix || ''} 
+                        decimals={stat.decimals || 0} 
+                      />
+                    )}
+                  </div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </CardContent>
               </Card>
@@ -324,6 +336,8 @@ export default function Index() {
           </Card>
         </div>
       </section>
+
+      <Testimonials />
 
       <section id="faq" className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto max-w-3xl">
