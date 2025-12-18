@@ -480,7 +480,7 @@ export default function Index() {
           </div>
 
           <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-            <p>© 2024 КПК "ФИН ФОРМУЛА". Все права защищены.</p>
+            <p>© 2016-2025 КПК "ФИН ФОРМУЛА". Все права защищены.</p>
           </div>
         </div>
       </footer>
