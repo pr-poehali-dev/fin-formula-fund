@@ -472,9 +472,9 @@ export default function Index() {
             <div>
               <h4 className="font-bold mb-4">Контакты</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li>+7 (___) ___-__-__</li>
-                <li>info@fin-formula.ru</li>
-                <li>Москва, ул. Примерная, д. 1</li>
+                <li>+7 (800) 302-31-82</li>
+                <li>info@ffrf.ru</li>
+                <li>Шахты, пр-кт. Пушкина, д. 29а</li>
               </ul>
             </div>
           </div>
