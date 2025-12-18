@@ -357,7 +357,7 @@ export default function Index() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Телефон</div>
-                    <div className="font-semibold">+7 (___) ___-__-__</div>
+                    <div className="font-semibold">+7 (800) 302-31-82</div>
                   </div>
                 </div>
 
@@ -367,7 +367,7 @@ export default function Index() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Email</div>
-                    <div className="font-semibold">info@fin-formula.ru</div>
+                    <div className="font-semibold">info@ffrf.ru</div>
                   </div>
                 </div>
 
@@ -377,7 +377,7 @@ export default function Index() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Адрес</div>
-                    <div className="font-semibold">Москва, ул. Примерная, д. 1</div>
+                    <div className="font-semibold">Шахты, пр-кт. Пушкина, д. 29а</div>
                   </div>
                 </div>
               </CardContent>
