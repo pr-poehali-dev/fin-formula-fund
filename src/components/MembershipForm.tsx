@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,6 +11,7 @@ interface MembershipFormProps {
 }
 
 export default function MembershipForm({ children }: MembershipFormProps) {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
     inn: '',
@@ -44,9 +46,9 @@ export default function MembershipForm({ children }: MembershipFormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Membership form submitted:', formData);
-    alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время для обсуждения условий членства.');
     setFormData({ inn: '', phone: '', fullName: '' });
     setOpen(false);
+    navigate('/thank-you');
   };
 
   const isValidINN = formData.inn.length === 10 || formData.inn.length === 12;
