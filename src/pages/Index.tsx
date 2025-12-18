@@ -467,7 +467,7 @@ export default function Index() {
                 </div>
                 <div>
                   <div className="font-bold">КПК "ФИН ФОРМУЛА"</div>
-                  <div className="text-sm text-gray-400">С 2016 года</div>
+                  <div className="text-sm text-gray-400">Стабильный рост с 2016 года</div>
                 </div>
               </div>
               <p className="text-gray-400 text-xs md:text-sm">
