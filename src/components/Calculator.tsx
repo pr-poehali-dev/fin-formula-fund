@@ -5,7 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import Icon from '@/components/ui/icon';
 
-const KEY_RATE = 21;
+const KEY_RATE = 16.5;
 
 export default function Calculator() {
   const [amount, setAmount] = useState(500000);
