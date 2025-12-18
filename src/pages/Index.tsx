@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
 import Calculator from '@/components/Calculator';
+import LoanCalculator from '@/components/LoanCalculator';
 import MembershipForm from '@/components/MembershipForm';
 import MobileMenu from '@/components/MobileMenu';
 
@@ -221,7 +222,10 @@ export default function Index() {
             ))}
           </div>
 
-          <Calculator />
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <Calculator />
+            <LoanCalculator />
+          </div>
         </div>
       </section>
 
