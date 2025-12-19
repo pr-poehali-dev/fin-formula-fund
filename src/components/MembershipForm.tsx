@@ -13,6 +13,7 @@ interface MembershipFormProps {
 export default function MembershipForm({ children }: MembershipFormProps) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     inn: '',
     phone: '',
@@ -43,12 +44,34 @@ export default function MembershipForm({ children }: MembershipFormProps) {
     setFormData({ ...formData, inn: formatted });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Membership form submitted:', formData);
-    setFormData({ inn: '', phone: '', fullName: '' });
-    setOpen(false);
-    navigate('/thank-you');
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('https://functions.poehali.dev/427a83bd-614a-45b4-9f59-ae24429bd021', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setFormData({ inn: '', phone: '', fullName: '' });
+        setOpen(false);
+        navigate('/thank-you');
+      } else {
+        alert('Ошибка при отправке заявки. Попробуйте позже.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Ошибка при отправке заявки. Попробуйте позже.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const isValidINN = formData.inn.length === 10 || formData.inn.length === 12;
@@ -134,10 +157,10 @@ export default function MembershipForm({ children }: MembershipFormProps) {
             type="submit"
             className="w-full gradient-purple-blue text-white"
             size="lg"
-            disabled={!isFormValid}
+            disabled={!isFormValid || isSubmitting}
           >
-            <Icon name="Send" size={20} />
-            Отправить заявку
+            <Icon name={isSubmitting ? "Loader2" : "Send"} size={20} className={isSubmitting ? "animate-spin" : ""} />
+            {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
           </Button>
 
           {!isFormValid && (
