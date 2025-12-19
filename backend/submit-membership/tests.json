@@ -1,0 +1,34 @@
+{
+  "tests": [
+    {
+      "name": "Отправка заявки с корректными данными",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "inn": "1234567890",
+        "phone": "+7 (999) 123-45-67",
+        "fullName": "Иванов Иван Иванович"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "message": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Отправка без обязательных полей",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "inn": "",
+        "phone": ""
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
