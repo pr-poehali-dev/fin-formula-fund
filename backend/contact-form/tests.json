@@ -1,0 +1,35 @@
+{
+  "tests": [
+    {
+      "name": "Отправка сообщения с корректными данными",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Иванов",
+        "email": "test@example.com",
+        "phone": "+7 (999) 123-45-67",
+        "message": "Здравствуйте, интересует сотрудничество"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "message": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Отправка без обязательных полей",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "",
+        "email": ""
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

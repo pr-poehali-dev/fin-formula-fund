@@ -14,6 +14,7 @@ import Testimonials from '@/components/Testimonials';
 
 export default function Index() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const services = [
     {
@@ -71,11 +72,33 @@ export default function Index() {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('https://functions.poehali.dev/938a9d74-34bc-4518-b118-c16728c86fd6', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        alert('Ошибка при отправке сообщения. Попробуйте позже.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Ошибка при отправке сообщения. Попробуйте позже.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -446,9 +469,9 @@ export default function Index() {
                     rows={4}
                     required
                   />
-                  <Button type="submit" className="w-full gradient-purple-blue text-white">
-                    <Icon name="Send" size={18} />
-                    Отправить
+                  <Button type="submit" className="w-full gradient-purple-blue text-white" disabled={isSubmitting}>
+                    <Icon name={isSubmitting ? "Loader2" : "Send"} size={18} className={isSubmitting ? "animate-spin" : ""} />
+                    {isSubmitting ? 'Отправка...' : 'Отправить'}
                   </Button>
                 </form>
               </CardContent>
